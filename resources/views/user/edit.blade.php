@@ -16,21 +16,21 @@
                     @csrf
                     @method('put')
                     <div class="form-group">
-                        <label for="harga_beli">Nama:</label>
+                        <label for="nama">Nama:</label>
                         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ $id->name }}" disabled>
                         @error('name')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="nama">Username:</label>
+                        <label for="username">Username:</label>
                         <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" name="username" value="{{ $id->username }}" disabled>
-                        @error('username'){{ route('petugas.update', $id->id) }}
+                        @error('username')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="harga_jual">Password:</label>
+                        <label for="password">Password:</label>
                         <input type="text" class="form-control @error('password') is-invalid @enderror" id="password" name="password" value="{{  $id->password }}">
                         @error('password')
                             <div class="invalid-feedback">{{ $message }}</div>

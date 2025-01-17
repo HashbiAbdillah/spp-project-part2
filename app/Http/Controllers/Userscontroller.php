@@ -6,18 +6,34 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class Userscontroller extends Controller
+class UsersController extends Controller
 {
     public function showpetugas()
     {
         //
         $users= User::all();
-        return view('user.listpetugas', compact('users'));
+        return view('user.listpetugas', compact('id'));
     }
     
         public function editpetugas(User $id)
     {
         //
         return view('user.edit', data: compact('id'));
+    }
+    public function updatepetugas(Request $request, User $id)
+    {
+
+        $request->validate([
+            'name' => 'required|string',
+            'password' => 'required|string',
+            'level' => 'nullable|string',
+        ]);
+        $id->update([
+            'name' => $request->input('name'),
+            'password' => $request->input('password'),
+            'level' => $request->input('level'),
+        ]);
+
+        return redirect()->route('user.listpetugas');
     }
 }

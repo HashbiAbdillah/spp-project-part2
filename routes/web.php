@@ -13,4 +13,6 @@ Route::post('/registrasi/submit' , [AuthController::class ,'submitregis'])->name
 
 Route::get('/petugas' , [AuthController::class ,'showpetugas'])->name('petugas.tampil');
 route::get('/petugas/{id}/edit', [UsersController::class, 'editpetugas'])->name('tampil.edit');
-route::put('/petugas/{id}/update', [Userscontroller::class, 'updatepetugas'])->name('petugas.update');
+route::put('/petugas/update/{id}', [Userscontroller::class, 'updatepetugas'])->name('petugas.update');
+route::get('/petugas/{id}/view', [UsersController::class, 'viewpetugas'])->name('tampil.view');
+route::delete('/petugas/{id}', [UsersController::class, 'petugasdestroy'])->name('petugas.destroy');

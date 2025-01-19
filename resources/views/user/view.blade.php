@@ -1,7 +1,7 @@
 @extends('template.view')
 @section('content')
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Edit Petugas</h1>
+        <h1 class="mt-4">View data Petugas</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active">Dashboard</li>
         </ol>
@@ -9,12 +9,11 @@
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
-                Edit data
+                Lihat data user
             </div>
             <div class="card-body">
                 <form action="{{ route('petugas.update', $id->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    @method('put')
                     <div class="form-group">
                         <label for="name">Nama:</label>
                         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ $id->name }}" readonly>
@@ -30,21 +29,23 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input type="text" class="form-control @error('password') is-invalid @enderror" id="password" name="password" value="{{  $id->password }}">
+                        <label for="level">level:</label>
+                        <input type="text" class="form-control @error('level') is-invalid @enderror" id="level" name="level" value="{{  $id->level }}" readonly>
                         @error('password')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Role</label>
-                        <select class="form-control @error('level') is-invalid @enderror" id="level" name="level" value="{{  $id->level }}">
-                            <option value="petugas" {{ $id->level == 'petugas' ? 'selected' : '' }}>Petugas</option>
-                            <option value="admin" {{ $id->level == 'admin' ? 'selected' : '' }}>Admin</option>
-                         </select>
+                        <label for="dibuat">Dibuat tanggal:</label>
+                        <input type="text" class="form-control @error('created_at') is-invalid @enderror" id="created_at" name="created_at" value="{{  $id->created_at }} " readonly>
+                        @error('created_at')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary mt-4">Ubah</button>
-                    <a href="{{ url()->previous() }}" class="btn btn-secondary mt-4">Batal</a>
+                        <div class="alert alert-danger" role="alert">
+                            <p>Jika user lupa password, password bisa diubah! Silakan hubungi admin</p>
+                        </div>
+                    <a href="{{ url()->previous() }}" class="btn btn-secondary mt-4">Kembali</a>
                 </form> 
             </div>
         </div>

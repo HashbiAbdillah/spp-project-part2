@@ -12,26 +12,20 @@
                                         <form action="{{ route('login.post') }}" method="post">
                                             @csrf
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" name="username" type="text" value="{{ old('username') }}" placeholder="name@example.com" required/>
+                                                <input class="form-control" name="username" type="text" value="" placeholder="Masukan username" required/>
                                                 <label for="inputEmail">Masukan Username</label>
                                             </div>
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" name="password" type="password" placeholder="Password" required/>
                                                 <label for="inputPassword">Password</label>
                                             </div>
+                                            @error('login')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                                <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 <button class="btn btn-primary">Login</button>
                                             </div>
                                         </form>
-                                        @if ($errors->any())
-                                            <div>
-                                                <ul>
-                                                    @foreach ($errors->all() as $error)
-                                                        <li>{{ $error }}</li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                        @endif
                                     </div>
                                     <div class="card-footer text-center py-3">
                                     </div>

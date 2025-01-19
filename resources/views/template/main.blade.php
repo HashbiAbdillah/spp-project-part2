@@ -32,7 +32,12 @@
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                            </form>
+                            <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -43,7 +48,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{route('dashboard')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt" aria-hidden="true"></i></div>
                                 Dashboard
                             </a>

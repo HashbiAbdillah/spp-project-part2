@@ -40,6 +40,7 @@
                                         <td>{{ $k->username }}</td>
                                         <td>{{ $k->level }}</td>
                                         <td>
+                                        @if (Auth::user()->level == 'admin')
                                             <a href="{{route('tampil.view',$k->id)}}" class="btn btn-sm btn-secondary">
                                                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                                             </a>
@@ -69,6 +70,11 @@
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger">Delete</button>
                                                         </form>
+                                                        @elseif (Auth::user()->level == 'petugas')
+                                                            <a href="{{route('tampil.view', $k->id)}}" class="btn btn-sm btn-secondary">
+                                                                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                                            </a>
+                                                        @endif
                                                         </div>
                                                     </div>
                                                 </div>

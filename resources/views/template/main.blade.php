@@ -64,11 +64,11 @@
                                 <div class="sb-nav-link-icon"><i class="fa fa-cc-mastercard" aria-hidden="true"></i></i></div>
                                 Pembayaran
                             </a>
-                            <!-- </a><a class="nav-link" href="#">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
+                            </a><a class="nav-link" href="{{route('kelas.tampil')}}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                                Kelas
                             </a>
-                             -->
+                            
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">

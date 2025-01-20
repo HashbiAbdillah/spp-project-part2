@@ -3,13 +3,12 @@
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Petugas</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">daftar petugas</li>
+                            <li class="breadcrumb-item active">daftar kelas</li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
-                            @if (Auth::user()->level == 'admin')
-                                <a href="{{ route('registrasi.tampil') }}" class="btn btn-sm btn-primary">Tambah petugas</a>
-                            @endif
+                                <!-- kasih route -->
+                                <a href="{{ route('kls.tampil') }}" class="btn btn-sm btn-primary">Tambah kelas</a>
                                 <i class="fas fa-table me-1"></i>
                                 DataTable Example
                             </div>
@@ -18,9 +17,9 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama</th>
-                                            <th>Username</th>
-                                            <th>Role</th>
+                                            <th>Kelas</th>
+                                            <th>Jurusan</th>
+                                            <!-- <th>Role</th> -->
                                             <th width="280px">Action</th>
                                         </tr>
                                     </thead>
@@ -29,30 +28,30 @@
                                             <th>No</t>
                                             <th>Nama</th>
                                             <th>Username</th>
-                                            <th>Role</th>
+                                            <!-- <th>Role</th> -->
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                    @foreach ( $users as $k )
+                                    @foreach ( $kelas as $k )
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $k->name }}</td>
-                                        <td>{{ $k->username }}</td>
-                                        <td>{{ $k->level }}</td>
+                                        <td>{{ $k->nama_kelas }}</td>
+                                        <td>{{ $k->kompetensi_keahlian }}</td>
+                                        <!-- <td>{{ $k->level }}</td> -->
                                         <td>
                                             @if (Auth::user()->level == 'admin')
-                                            <a href="{{route('tampil.view',$k->id)}}" class="btn btn-sm btn-secondary">
+                                            <a href="{{route('kelas.view',$k->id_kelas)}}" class="btn btn-sm btn-secondary">
                                                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                                             </a>
                                             <!-- kasih route -->
-                                            <a href="{{route('tampil.edit',$k->id)}}" class="btn btn-warning">
+                                            <a href="{{route('kelas.edit',$k->id_kelas)}}" class="btn btn-warning">
                                                 <i class="fa fa-edit"></I>
                                             </a>
-                                            <a class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{$k->id}}">
+                                            <a class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{$k->id_kelas}}">
                                                 <i class="fa fa-trash"></I>
                                             </a>
-                                            <div class="modal fade" id="exampleModal{{$k->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                            <div class="modal fade" id="exampleModal{{$k->id_kelas}}" tabindex="-1" aria-labelledby="exampleModalLabel"
                                             aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
@@ -61,18 +60,18 @@
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        Apakah anda yakin akan menghapus data {{$k->name}}
+                                                        Apakah anda yakin akan menghapus kelas {{$k->nama_kelas}}
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
-                                                        <form action="{{ route('petugas.destroy', $k->id) }}" method="POST" style="display:inline;">
+                                                        <form action="{{ route('kelas.destroy', $k->id_kelas) }}" method="POST" style="display:inline;">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger">Delete</button>
                                                         </form>
                                                         @elseif (Auth::user()->level == 'petugas')
-                                                            <a href="{{route('tampil.view', $k->id)}}" class="btn btn-sm btn-secondary">
+                                                            <a href="{{route('kelas.view', $k->id_kelas)}}" class="btn btn-sm btn-secondary">
                                                                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                                                             </a>
                                                         @endif

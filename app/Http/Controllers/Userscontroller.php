@@ -10,9 +10,8 @@ class UsersController extends Controller
 {
     public function showpetugas()
     {
-        //
         $users= User::all();
-        return view('user.listpetugas', compact('id'));
+        return view('user.listpetugas', compact('users'));
     }
     
         public function editpetugas(User $id)

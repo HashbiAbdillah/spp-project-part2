@@ -25,11 +25,7 @@ class AuthController extends Controller
 
 
     }
-    public function showpetugas()
-    {
-        $users= User::all();
-        return view('user.listpetugas', compact('users'));
-    }
+    
     
     public function showLoginForm()
     {

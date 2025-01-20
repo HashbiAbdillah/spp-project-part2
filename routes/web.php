@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\SppController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,6 +25,7 @@ Route::middleware(['auth'])->group(function () {
     route::put('/petugas/update/{id}', [Userscontroller::class, 'updatepetugas'])->name('petugas.update');
     route::get('/petugas/{id}/view', [UsersController::class, 'viewpetugas'])->name('tampil.view');
     route::delete('/petugas/{id}', [UsersController::class, 'petugasdestroy'])->name('petugas.destroy');
+    
 
     Route::get('/tmbhkls' , [KelasController::class ,'klsregis'])->name('kls.tampil');
     Route::post('/tmbhkls/submit' , [KelasController::class ,'submitklsregis'])->name('kls.submit');
@@ -32,7 +34,13 @@ Route::middleware(['auth'])->group(function () {
     route::put('/kelas/update/{id_kelas}', [KelasController::class, 'updatekelas'])->name('kelas.update');
     route::get('/kelas/{id_kelas}/view', [KelasController::class, 'viewkelas'])->name('kelas.view');
     route::delete('/kelas/{id_kelas}', [KelasController::class, 'kelasdestroy'])->name('kelas.destroy');
+
+    Route::get('/byrspp' , [SppController::class ,'sppregis'])->name('spp.bayar');
+    Route::post('/byrspp/submit' , [SppController::class ,'submitsppregis'])->name('spp.submit');
+    Route::get('/spp' , [SppController::class ,'showspp'])->name('spp.tampil');
+    route::get('/spp/{id_kelas}/edit', [SppController::class, 'editkelas'])->name('kelas.edit');
+    route::put('/spp/update/{id_kelas}', [SppController::class, 'updatekelas'])->name('kelas.update');
+    route::get('/spp/{id_kelas}/view', [SppController::class, 'viewkelas'])->name('kelas.view');
+    route::delete('/spp/{id_kelas}', [SppController::class, 'kelasdestroy'])->name('kelas.destroy');
     
 });
-
-;

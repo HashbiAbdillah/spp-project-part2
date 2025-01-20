@@ -60,15 +60,21 @@
                                 <div class="sb-nav-link-icon"><i class="fa fa-address-book" aria-hidden="true"></i>
                                 </div>
                                 Siswa
-                            </a><a class="nav-link" href="#">
-                                <div class="sb-nav-link-icon"><i class="fa fa-cc-mastercard" aria-hidden="true"></i></i></div>
-                                Pembayaran
                             </a>
-                            </a><a class="nav-link" href="{{route('kelas.tampil')}}">
+                            <a class="nav-link" href="{{route('kelas.tampil')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                                 Kelas
                             </a>
-                            
+                            <a class="nav-link" href="#">
+                                <div class="sb-nav-link-icon"><i class="fa fa-cc-mastercard" aria-hidden="true"></i></i></div>
+                                Pembayaran
+                            </a>
+                            @if (Auth::user()->level == 'admin')
+                            <a class="nav-link" href="{{route('spp.tampil')}}">
+                                <div class="sb-nav-link-icon"><i class="fa fa-bar-chart" aria-hidden="true"></i></div>
+                                SPP
+                            </a>
+                            @endif
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">

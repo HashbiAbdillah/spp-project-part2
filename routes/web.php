@@ -42,4 +42,12 @@ Route::middleware(['auth'])->group(function () {
     route::put('/spp/update/{id_spp}', [SppController::class, 'updatespp'])->name('spp.update');
     route::delete('/spp/{id_spp}', [SppController::class, 'sppdestroy'])->name('spp.destroy');
     
+    Route::get('/tmbhkls' , [KelasController::class ,'klsregis'])->name('kls.tampil');
+    Route::post('/tmbhkls/submit' , [KelasController::class ,'submitklsregis'])->name('kls.submit');
+    Route::get('/kelas' , [KelasController::class ,'showkelas'])->name('kelas.tampil');
+    route::get('/kelas/{id_kelas}/edit', [KelasController::class, 'editkelas'])->name('kelas.edit');
+    route::put('/kelas/update/{id_kelas}', [KelasController::class, 'updatekelas'])->name('kelas.update');
+    route::get('/kelas/{id_kelas}/view', [KelasController::class, 'viewkelas'])->name('kelas.view');
+    route::delete('/kelas/{id_kelas}', [KelasController::class, 'kelasdestroy'])->name('kelas.destroy');
+    
 });

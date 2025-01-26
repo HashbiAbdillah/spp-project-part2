@@ -12,7 +12,7 @@
                 Lihat data user
             </div>
             <div class="card-body">
-                <form action="{{ route('kelas.update', $id_kelas->id_kelas) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('kelas.update', parameters: $id_kelas->id_kelas) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="form-group">

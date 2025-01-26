@@ -16,7 +16,7 @@
                     <div class="card-body">
                         <h4 class=" active text-danger">Id harus dibuat manual</h4>
                         <p class="card-text">Id Spp ("bulan ke, tahun").</p>
-                        <p class="card-text">bulan 01 tahun 2025 = 012025</p>
+                        <p class="card-text">bulan 01 tahun 2025 = 202501</p>
                     </div>
                 </div>
             </div>

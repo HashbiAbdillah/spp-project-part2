@@ -38,9 +38,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/byrspp' , [SppController::class ,'sppregis'])->name('spp.bayar');
     Route::post('/byrspp/submit' , [SppController::class ,'submitsppregis'])->name('spp.submit');
     Route::get('/spp' , [SppController::class ,'showspp'])->name('spp.tampil');
-    route::get('/spp/{id_kelas}/edit', [SppController::class, 'editkelas'])->name('kelas.edit');
-    route::put('/spp/update/{id_kelas}', [SppController::class, 'updatekelas'])->name('kelas.update');
-    route::get('/spp/{id_kelas}/view', [SppController::class, 'viewkelas'])->name('kelas.view');
-    route::delete('/spp/{id_kelas}', [SppController::class, 'kelasdestroy'])->name('kelas.destroy');
+    route::get('/spp/{id_spp}/edit', [SppController::class, 'editspp'])->name('spp.edit');
+    route::put('/spp/update/{id_spp}', [SppController::class, 'updatespp'])->name('spp.update');
+    route::delete('/spp/{id_spp}', [SppController::class, 'sppdestroy'])->name('spp.destroy');
     
 });

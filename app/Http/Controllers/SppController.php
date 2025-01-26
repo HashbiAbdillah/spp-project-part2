@@ -48,9 +48,9 @@ class SppController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(spp $spp)
+    public function editspp(spp $id_spp)
     {
-        //
+        return view('spp.editspp', data: compact('id_spp'));
     }
 
     /**
@@ -72,8 +72,11 @@ class SppController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(spp $spp)
+    public function sppdestroy(spp $id_spp)
     {
-        //
+        $id_spp->delete();
+    
+        return redirect()->route('spp.tampil')
+                ->with('success','Data berhasil di hapus' );
     }
 }

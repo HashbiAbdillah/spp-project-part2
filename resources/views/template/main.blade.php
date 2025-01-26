@@ -69,7 +69,7 @@
                                 <div class="sb-nav-link-icon"><i class="fa fa-cc-mastercard" aria-hidden="true"></i></i></div>
                                 Pembayaran
                             </a>
-                            @if (Auth::user()->level == 'admin')
+                            @if (Auth::user()->level == 'petugas')
                             <a class="nav-link" href="{{route('spp.tampil')}}">
                                 <div class="sb-nav-link-icon"><i class="fa fa-bar-chart" aria-hidden="true"></i></div>
                                 SPP

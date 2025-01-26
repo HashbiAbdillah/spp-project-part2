@@ -9,7 +9,7 @@
                             <div class="card-header">
                             @if (Auth::user()->level == 'admin')
                                 <!-- kasih route -->
-                                <a href="" class="btn btn-sm btn-primary">Tambah kelas</a>
+                                <a href="{{ route('siswa.tambah') }}" class="btn btn-sm btn-primary">Tambah kelas</a>
                             @endif    
                                 <i class="fas fa-table me-1"></i>
                                 DataTable Example
@@ -20,27 +20,27 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nama siswa</th>
+                                            <th>Kelas</th>
                                             <th>Alamat</th>
-                                            <!-- <th>Role</th> -->
                                             <th width="280px">Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>No</t>
-                                            <th>Nama</th>
-                                            <th>Username</th>
-                                            <!-- <th>Role</th> -->
+                                            <th>Nama siswa</th>
+                                            <th>Kelas</th>
+                                            <th>Alamat</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                    @foreach ( $kelas as $k )
+                                    @foreach ( $siswas as $k )
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $k->nama_kelas }}</td>
-                                        <td>{{ $k->kompetensi_keahlian }}</td>
-                                        <!-- <td>{{ $k->level }}</td> -->
+                                        <td>{{ $k->nama }}</td>
+                                        <td>{{ $k->id_kelas }}</td>
+                                        <td>{{ $k->alamat }}</td>
                                         <td>
                                             @if (Auth::user()->level == 'admin')
                                             <a href="" class="btn btn-sm btn-secondary">

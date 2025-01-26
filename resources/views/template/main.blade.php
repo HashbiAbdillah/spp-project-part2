@@ -56,7 +56,7 @@
                                 <div class="sb-nav-link-icon"><i class="fa fa-users" aria-hidden="true"></i></div>
                                 Petugas
                             </a>
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{route('siswa.tampil')}}">
                                 <div class="sb-nav-link-icon"><i class="fa fa-address-book" aria-hidden="true"></i>
                                 </div>
                                 Siswa
@@ -69,7 +69,7 @@
                                 <div class="sb-nav-link-icon"><i class="fa fa-cc-mastercard" aria-hidden="true"></i></i></div>
                                 Pembayaran
                             </a>
-                            @if (Auth::user()->level == 'petugas')
+                            @if (Auth::user()->level == 'admin')
                             <a class="nav-link" href="{{route('spp.tampil')}}">
                                 <div class="sb-nav-link-icon"><i class="fa fa-bar-chart" aria-hidden="true"></i></div>
                                 SPP

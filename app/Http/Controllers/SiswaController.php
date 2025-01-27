@@ -72,24 +72,49 @@ class SiswaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(siswa $siswa)
+    public function editsiswa(siswa $nisn)
     {
-        //
+        $siswa = siswa::all();
+        $kelas = kelas::all(); 
+        $spp = spp::all(); 
+        return view('siswa.editsws', compact('nisn', 'kelas', 'spp'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, siswa $siswa)
-    {
-        //
+    public function updatesiswa(Request $request, siswa $nisn)
+    {   
+    // Validasi data
+    $request->validate([
+        'nis' => 'required|string',
+        'nama' => 'required|string',
+        'id_kelas' => 'required|integer',
+        'alamat' => 'nullable|string',
+        'no_telp' => 'nullable|string',
+        'id_spp' => 'required|integer',
+    ]);
+
+    $nisn->update([
+        'nis' => $request->input('nis'),
+        'nama' => $request->input('nama'),
+        'id_kelas' => $request->input('id_kelas'),
+        'alamat' => $request->input('alamat'),
+        'no_telp' => $request->input('no_telp'),
+        'id_spp' => $request->input('id_spp'),
+    ]);
+    
+    return redirect()->route('siswa.tampil', $nisn)->with('success', 'Data siswa berhasil diperbarui.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(siswa $siswa)
+    public function siswadestroy(siswa $nisn)
     {
-        //
+        $nisn->delete();
+    
+        return redirect()->route('kelas.tampil')
+                ->with('success','Data berhasil di hapus' );
     }
 }

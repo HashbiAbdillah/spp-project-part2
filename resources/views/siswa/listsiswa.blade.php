@@ -50,13 +50,13 @@
                                                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                                             </a>
                                             <!-- kasih route -->
-                                            <a href="" class="btn btn-warning">
+                                            <a href="{{route('siswa.edit',$k->nisn)}}" class="btn btn-warning">
                                                 <i class="fa fa-edit"></I>
                                             </a>
-                                            <a class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{$k->id_kelas}}">
+                                            <a class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{$k->nisn}}">
                                                 <i class="fa fa-trash"></I>
                                             </a>
-                                            <div class="modal fade" id="exampleModal{{$k->id_kelas}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                            <div class="modal fade" id="exampleModal{{$k->nisn}}" tabindex="-1" aria-labelledby="exampleModalLabel"
                                             aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
@@ -65,12 +65,12 @@
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        Apakah anda yakin akan menghapus kelas {{$k->nama_kelas}}
+                                                        Apakah anda yakin akan menghapus siswa atas nama {{$k->nama}}
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
-                                                        <form action="" method="POST" style="display:inline;">
+                                                        <form action="{{ route('siswa.destroy', $k->nisn) }}" method="POST" style="display:inline;">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger">Delete</button>

@@ -15,4 +15,8 @@ class spp extends Model
         'tahun',
         'nominal',
     ];
+    public function siswas()
+    {
+        return $this->hasMany(siswa::class, 'id_spp', 'id_spp');
+    }
 }

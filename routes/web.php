@@ -46,9 +46,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/tmbhsiswa' , [SiswaController::class ,'siswaregis'])->name('siswa.tambah');
     Route::post('/tmbhsiswa/submit' , [SiswaController::class ,'submitsiswaregis'])->name('siswa.submit');
     Route::get('/siswa' , [SiswaController::class ,'showsiswa'])->name('siswa.tampil');
-    route::get('/kelas/{id_kelas}/edit', [SiswaController::class, 'editkelas'])->name('kelas.edit');
-    route::put('/kelas/update/{id_kelas}', [SiswaController::class, 'updatekelas'])->name('kelas.update');
-    route::get('/kelas/{id_kelas}/view', [SiswaController::class, 'viewkelas'])->name('kelas.view');
-    route::delete('/kelas/{id_kelas}', [SiswaController::class, 'kelasdestroy'])->name('kelas.destroy');
+    route::get('/siswa/{nisn}/edit', [SiswaController::class, 'editsiswa'])->name('siswa.edit');
+    route::put('/siswa/update/{nisn}', [SiswaController::class, 'updatesiswa'])->name('siswa.update');
+    route::get('/siswa/{nisn}/view', [SiswaController::class, 'viewsiswa'])->name('siswa.view');
+    route::delete('/siswa/{nisn}', [SiswaController::class, 'siswadestroy'])->name('siswa.destroy');
     
 });

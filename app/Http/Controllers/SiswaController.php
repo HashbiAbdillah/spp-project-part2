@@ -14,7 +14,7 @@ class SiswaController extends Controller
      */
     public function showsiswa()
     {
-        $siswas= siswa::all();
+        $siswas= siswa::with('kelas')->get();
         return view('siswa.listsiswa', compact('siswas'));
     }
 
@@ -64,9 +64,9 @@ class SiswaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(siswa $siswa)
+    public function viewsiswa(siswa $nisn)
     {
-        //
+        return view('siswa.viewsiswa', data: compact('nisn'));
     }
 
     /**

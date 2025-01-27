@@ -18,4 +18,8 @@ class kelas extends Model
         'kompetensi_keahlian',
     ];
      
+    public function siswas()
+    {
+        return $this->hasMany(siswa::class, 'id_kelas', 'id_kelas');
+    }
 }

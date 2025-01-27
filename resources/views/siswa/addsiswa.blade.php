@@ -11,19 +11,6 @@
                 <i class="fas fa-table me-1"></i>
                 Edit data
             </div>
-            <!-- <div class="d-flex justify-content-center " style="margin-top: 20px;">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class=" active text-danger">Id harus dibuat manual</h4>
-                        <p class="card-text">Id kelas berdasarkan tingkat kelas.</p>
-                        <ul>
-                            <li>Kelas 10 diawali angka 11</li>
-                            <li>Kelas 11 diawali angka 12</li>
-                            <li>Kelas 12 diawali angka 13</li>
-                        </ul>
-                    </div>
-                </div>
-            </div> -->
             <div class="card-body">
                 <form action="{{ route('siswa.submit') }}" method="POST">
                     @csrf

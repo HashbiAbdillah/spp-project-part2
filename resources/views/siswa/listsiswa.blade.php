@@ -22,6 +22,7 @@
                                             <th>Nama siswa</th>
                                             <th>Kelas</th>
                                             <th>Alamat</th>
+                                            <th>Spp per-bulan</th>
                                             <th width="280px">Action</th>
                                         </tr>
                                     </thead>
@@ -31,6 +32,7 @@
                                             <th>Nama siswa</th>
                                             <th>Kelas</th>
                                             <th>Alamat</th>
+                                            <th>Spp per-bulan</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
@@ -39,11 +41,12 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $k->nama }}</td>
-                                        <td>{{ $k->id_kelas }}</td>
+                                        <td>{{ $k-> kelas-> nama_kelas }}</td>
                                         <td>{{ $k->alamat }}</td>
+                                        <td>{{ $k->spp->nominal }}</td>
                                         <td>
                                             @if (Auth::user()->level == 'admin')
-                                            <a href="" class="btn btn-sm btn-secondary">
+                                            <a href="{{route('siswa.view',$k->nisn)}}" class="btn btn-sm btn-secondary">
                                                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                                             </a>
                                             <!-- kasih route -->

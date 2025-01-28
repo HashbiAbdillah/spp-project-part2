@@ -10,9 +10,10 @@ class PembayaranController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function showpembayaran()
     {
-        //
+        $pembayarans= pembayaran::all();
+        return view('pembayaran.tabelbayar', compact('pembayarans'));
     }
 
     /**

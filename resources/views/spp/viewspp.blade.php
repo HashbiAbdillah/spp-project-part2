@@ -1,18 +1,18 @@
 @extends('template.main')
 @section('content')
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Kelas</h1>
+                        <h1 class="mt-4">Spp</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">tabel data Spp</li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
-                            @if (Auth::user()->level == 'petugas')
+                            @if (Auth::user()->level == 'admin')
                                 <!-- kasih route -->
                                 <a href=" {{ route ('spp.bayar')}}" class="btn btn-sm btn-primary">Tambah Spp</a>
                             @endif    
                                 <i class="fas fa-table me-1"></i>
-                                DataTable Example
+                                DataTable spp
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -50,7 +50,7 @@
                                             <a href="{{route('spp.edit',$k->id_spp)}}" class="btn btn-warning">
                                                 <i class="fa fa-edit"></I>
                                             </a>
-                                            <a class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{$k->id_kelas}}">
+                                            <a class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{$k->id_spp}}">
                                                 <i class="fa fa-trash"></I>
                                             </a>
                                             <div class="modal fade" id="exampleModal{{$k->id_spp}}" tabindex="-1" aria-labelledby="exampleModalLabel"

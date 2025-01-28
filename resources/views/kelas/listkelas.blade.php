@@ -12,7 +12,7 @@
                                 <a href="{{ route('kls.tampil') }}" class="btn btn-sm btn-primary">Tambah kelas</a>
                             @endif    
                                 <i class="fas fa-table me-1"></i>
-                                DataTable Example
+                                DataTable kelas
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">

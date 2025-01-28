@@ -6,6 +6,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\SppController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\PembayaranController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -50,5 +51,13 @@ Route::middleware(['auth'])->group(function () {
     route::put('/siswa/update/{nisn}', [SiswaController::class, 'updatesiswa'])->name('siswa.update');
     route::get('/siswa/{nisn}/view', [SiswaController::class, 'viewsiswa'])->name('siswa.view');
     route::delete('/siswa/{nisn}', [SiswaController::class, 'siswadestroy'])->name('siswa.destroy');
+
+    Route::get('/pembayaran' , [PembayaranController::class ,'siswaregis'])->name('siswa.tambah');
+    Route::post('/pemabayaran/submit' , [PembayaranController::class ,'submitsiswaregis'])->name('siswa.submit');
+    Route::get('/listbyr' , [PembayaranController::class ,'showpembayaran'])->name('pembayaran.tampil');
+    route::get('/pembayaran/{id_pembayaran}/edit', [PembayaranController::class, 'editpembayaran'])->name('pembayaran.edit');
+    route::put('/pembayaran/update/{id_pembayaran}', [PembayaranController::class, 'updatepembayaran'])->name('pembayaran.update');
+    route::get('/pembayaran/{id_pembayaran}/view', [PembayaranController::class, 'viewpembayaran'])->name('pembayaran.view');
+    route::delete('/pembayaran/{id_pembayaran}', [PembayaranController::class, 'pembayarandestroy'])->name('pembayaran.destroy');
     
 });

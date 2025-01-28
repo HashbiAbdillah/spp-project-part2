@@ -65,21 +65,21 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                                 Kelas
                             </a>
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{route('pembayaran.tampil')}}">
                                 <div class="sb-nav-link-icon"><i class="fa fa-cc-mastercard" aria-hidden="true"></i></i></div>
                                 Pembayaran
                             </a>
-                            @if (Auth::user()->level == 'admin')
+                            
                             <a class="nav-link" href="{{route('spp.tampil')}}">
                                 <div class="sb-nav-link-icon"><i class="fa fa-bar-chart" aria-hidden="true"></i></div>
                                 SPP
                             </a>
-                            @endif
+                           
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Start Bootstrap
+                        <div class="small">Logged in as: </div>
+                        <p class="text-warning">{{ Auth::user()->name }}</p>
                     </div>
                 </nav>
             </div>

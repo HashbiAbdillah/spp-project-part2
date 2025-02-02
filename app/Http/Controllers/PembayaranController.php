@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\pembayaran;
 use Illuminate\Http\Request;
+use App\Models\siswa;
+use App\Models\user;
+use Illuminate\Support\Facades\Auth;
 
 class PembayaranController extends Controller
 {
@@ -19,19 +22,39 @@ class PembayaranController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function pembayaranregis()
     {
-        //
+        $siswas = siswa::with('spp')->get();;
+        $user = user::all();
+        return view('pembayaran.formbayar', compact('siswas','user'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function submitpembayaranregis(Request $request)
     {
-        //
+        {
+            $request->validate([
+                'nisn' => 'required',
+                'bulan_dibayar' => 'required',
+                'tahun_dibayar' => 'required',
+                'id_spp' => 'required',
+                'jumlah_bayar' => 'required',
+            ]);
+    
+            $pembayaran = new Pembayaran();
+            $pembayaran->id = Auth::user()->id;
+            $pembayaran->nisn = $request->input('nisn');
+            $pembayaran->bulan_dibayar = $request->input('bulan_dibayar');
+            $pembayaran->tahun_dibayar = $request->input('tahun_dibayar');
+            $pembayaran->id_spp = $request->input('id_spp');
+            $pembayaran->jumlah_bayar = $request->input('jumlah_bayar');
+            $pembayaran->save();
+    
+            return redirect()->route('pembayaran.tabelbayar')->with('success', 'Pembayaran berhasil ditambahkan');
+        }
     }
-
     /**
      * Display the specified resource.
      */

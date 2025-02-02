@@ -47,4 +47,8 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function pembayarans()
+    {
+        return $this->hasMany(Pembayaran::class, 'id', 'id');
+    }
 }

@@ -21,10 +21,14 @@ class siswa extends Model
     ];
     public function kelas()
     {
-        return $this->belongsTo(Kelas::class, 'id_kelas', 'id_kelas');
+        return $this->belongsTo(kelas::class, 'id_kelas', 'id_kelas');
     }
     public function spp()
     {
         return $this->belongsTo(spp::class, 'id_spp', 'id_spp');
+    }
+    public function pembayarans()
+    {
+        return $this->hasMany(pembayaran::class, 'nisn', 'nisn');
     }
 }

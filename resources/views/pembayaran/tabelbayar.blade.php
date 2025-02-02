@@ -9,7 +9,7 @@
                             <div class="card-header">
                             
                                 <!-- kasih route -->
-                                <a href=" " class="btn btn-sm btn-primary">Tambah pembayaran</a>
+                                <a href="{{ route('pembayaran.tambah') }} " class="btn btn-sm btn-primary">Tambah pembayaran</a>
                            
                                 <i class="fas fa-table me-1"></i>
                                 DataTable pembayaran sukses

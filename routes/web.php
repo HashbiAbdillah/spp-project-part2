@@ -52,9 +52,9 @@ Route::middleware(['auth'])->group(function () {
     route::get('/siswa/{nisn}/view', [SiswaController::class, 'viewsiswa'])->name('siswa.view');
     route::delete('/siswa/{nisn}', [SiswaController::class, 'siswadestroy'])->name('siswa.destroy');
 
-    Route::get('/pembayaran' , [PembayaranController::class ,'siswaregis'])->name('siswa.tambah');
-    Route::post('/pemabayaran/submit' , [PembayaranController::class ,'submitsiswaregis'])->name('siswa.submit');
-    Route::get('/listbyr' , [PembayaranController::class ,'showpembayaran'])->name('pembayaran.tampil');
+    Route::get('/pembayaran' , [PembayaranController::class ,'pembayaranregis'])->name('pembayaran.tambah');
+    Route::post('/pemabayaran/submit' , [PembayaranController::class ,'submitpembayaranregis'])->name('pembayaran.submit');
+    Route::get('/listpmbyrn' , [PembayaranController::class ,'showpembayaran'])->name('pembayaran.tampil');
     route::get('/pembayaran/{id_pembayaran}/edit', [PembayaranController::class, 'editpembayaran'])->name('pembayaran.edit');
     route::put('/pembayaran/update/{id_pembayaran}', [PembayaranController::class, 'updatepembayaran'])->name('pembayaran.update');
     route::get('/pembayaran/{id_pembayaran}/view', [PembayaranController::class, 'viewpembayaran'])->name('pembayaran.view');

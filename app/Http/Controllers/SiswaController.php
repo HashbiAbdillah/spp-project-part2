@@ -33,7 +33,6 @@ class SiswaController extends Controller
      */
     public function submitsiswaregis(Request $request)
     {
-        // Validasi data
         $request->validate([
             'nisn' => 'required|string|max:10|unique:siswas,nisn',
             'nis' => 'required|string|max:8',
@@ -43,8 +42,7 @@ class SiswaController extends Controller
             'no_telp' => 'nullable|string|max:13',
             'id_spp' => 'required|integer',
         ]);
-    
-        // Buat instance baru dari model Siswa
+ 
         $siswa = new Siswa();
         $siswa->nisn = $request->input('nisn');
         $siswa->nis = $request->input('nis');
@@ -54,10 +52,8 @@ class SiswaController extends Controller
         $siswa->no_telp = $request->input('no_telp');
         $siswa->id_spp = $request->input('id_spp');
     
-        // Simpan data ke database
         $siswa->save();
-    
-        // Redirect ke halaman sebelumnya dengan pesan sukses
+
         return redirect()->route('siswa.tampil')->with('success', 'Data siswa berhasil ditambahkan.');
     }
 

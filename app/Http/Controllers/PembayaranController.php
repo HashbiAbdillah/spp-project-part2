@@ -34,7 +34,8 @@ class PembayaranController extends Controller
      */
     public function submitpembayaranregis(Request $request)
     {
-        {
+        
+        //   dd($request) ; 
             $request->validate([
                 'nisn' => 'required',
                 'bulan_dibayar' => 'required',
@@ -51,9 +52,9 @@ class PembayaranController extends Controller
             $pembayaran->id_spp = $request->input('id_spp');
             $pembayaran->jumlah_bayar = $request->input('jumlah_bayar');
             $pembayaran->save();
-    
+            
             return redirect()->route('pembayaran.tabelbayar')->with('success', 'Pembayaran berhasil ditambahkan');
-        }
+        
     }
     /**
      * Display the specified resource.

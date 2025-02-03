@@ -9,7 +9,7 @@ class pembayaran extends Model
     protected $table = 'pembayarans';
     protected $primaryKey = 'id_pembayaran'; 
     public $incrementing = true; 
-    protected $keyType = 'unsignedBigInteger'; 
+    // protected $keyType = 'unsignedBigInteger'; 
     protected $fillable = [
         'id',
         'nisn',

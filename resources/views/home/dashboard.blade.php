@@ -29,7 +29,7 @@
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white mb-4">
+                                <div class="card bg-info text-white mb-4">
                                     <div class="card-body">Jumlah kelas
                                         <h3>{{ $jumlahKelas }}</h3>
                                     </div>
@@ -40,12 +40,12 @@
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
-                                <div class="card-body">Jumlah kelas SPP
-                                        <h3>{{ $jumlahSpp }}</h3>
+                                <div class="card bg-Success text-white mb-4">
+                                <div class="card-body">Jumlah pembayaran
+                                        <h3>{{ $jumlahPembayaran }}</h3>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="{{ route('spp.tampil') }}">View Details</a>
+                                        <a class="small text-white stretched-link" href="{{ route('pembayaran.tampil') }}">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>

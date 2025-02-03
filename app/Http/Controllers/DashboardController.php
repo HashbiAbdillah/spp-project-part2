@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\siswa;
 use App\Models\kelas;
-use App\Models\spp;
+use App\Models\pembayaran;
 
 class DashboardController extends Controller
 {
@@ -15,9 +15,9 @@ class DashboardController extends Controller
         $jumlahPetugas = User::count();
         $jumlahSiswa = siswa::count();
         $jumlahKelas =  kelas::count();
-        $jumlahSpp = spp::count();
+        $jumlahPembayaran = pembayaran::count();
 
-        return view('home.dashboard', compact('jumlahPetugas', 'jumlahSiswa', 'jumlahKelas','jumlahSpp'));
+        return view('home.dashboard', compact('jumlahPetugas', 'jumlahSiswa', 'jumlahKelas','jumlahPembayaran'));
     }
    
 }

@@ -47,7 +47,7 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <div class="sb-sidenav-menu-heading">Menu Utama</div>
                             <a class="nav-link" href="{{route('dashboard')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt" aria-hidden="true"></i></div>
                                 Dashboard
@@ -66,7 +66,7 @@
                                 Kelas
                             </a>
                             <a class="nav-link" href="{{route('pembayaran.tampil')}}">
-                                <div class="sb-nav-link-icon"><i class="fa fa-cc-mastercard" aria-hidden="true"></i></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa fa-usd" aria-hidden="true"></i></div>
                                 Pembayaran
                             </a>
                             

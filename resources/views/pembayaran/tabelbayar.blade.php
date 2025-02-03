@@ -43,7 +43,7 @@
                                         <td>{{ $k->siswas->nama }}</td>
                                         <td>{{ $k->jumlah_bayar}}</td>
                                         <td>{{ $k->created_at }}</td>
-                                        <td>{{ $k->users->name }}</td>
+                                        <td>{{ $k->user->name }}</td>
                                         <td>
                                             
                                             <a href="" class="btn btn-sm btn-secondary">

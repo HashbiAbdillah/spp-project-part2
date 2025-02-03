@@ -23,7 +23,7 @@
                         <select class="form-control" id="nisn" name="nisn">
                             <option value="">Pilih NISN</option>
                             @foreach($siswas as $siswa)
-                                <option value="{{ $siswa->nisn }}" data-nama="{{ $siswa->nama }}" data-spp="{{ $siswa->spp->nominal }}">
+                                <option value="{{ $siswa->nisn }}" data-nama="{{ $siswa->nama }}" data-spp="{{ $siswa->spp->nominal }}"data-idspp="{{ $siswa->spp->id_spp }}">
                                     {{ $siswa->nisn }}
                                 </option>
                             @endforeach
@@ -35,7 +35,8 @@
                     </div>
                     <div class="form-group">
                         <label for="id_spp">SPP per bulan:</label>
-                        <input class="form-control" id="id_spp" name="id_spp" type="text" disabled/>
+                        <input class="form-control" id="nominal" name="nominal" type="text" readonly/>
+                        <input class="form-control" id="id_spp" name="id_spp" type="hidden" readonly/>
                     </div>
                     <div class="form-group">
                         <label for="bulan_dibayar">Bulan Dibayar:</label>
@@ -58,9 +59,11 @@
 
                         var nama = selectedOption.getAttribute('data-nama');
                         var spp = selectedOption.getAttribute('data-spp');
+                        var sppid = selectedOption.getAttribute('data-idspp');
 
                         document.getElementById('nama').value = nama;
-                        document.getElementById('id_spp').value = spp;
+                        document.getElementById('nominal').value = spp;
+                        document.getElementById('id_spp').value = sppid;
                     });
 
                     document.getElementById('nisn').dispatchEvent(new Event('change'));
